@@ -12,22 +12,22 @@ public class jdbc {
             7. close
          */
 
-        int sid = 101;
-        String sname = "Sathi";
-        int marks = 48;
+        int sid = 102;
+        String sname = "Ankita";
+        int marks = 33;
 
         String url = "jdbc:postgresql://localhost:5432/demo";
         String user = "postgres";
         String password = "2014";
         /* Delete */
-        String sql = "insert into student values (" + sid + ", '" + sname + "', " + marks + ")";
+        String sql = "insert into student values(?,?,?)";
 
-        /* Class.forName("org.postgresql.Driver"); */
         Connection connection = DriverManager.getConnection(url, user, password);
-        System.out.println("Database Connection Established....");
-        Statement statement = connection.createStatement();
-        statement.execute(sql);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, sid);
+        preparedStatement.setString(2, sname);
+        preparedStatement.setInt(3, marks);
+        preparedStatement.execute();
         connection.close();
-        System.out.println("Database Connection Closed....");
     }
 }
