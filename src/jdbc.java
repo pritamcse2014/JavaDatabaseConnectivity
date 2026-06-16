@@ -15,8 +15,8 @@ public class jdbc {
         String url = "jdbc:postgresql://localhost:5432/demo";
         String user = "postgres";
         String password = "2014";
-        /* Update */
-        String sql = "update student set sname = 'Prity' where sid = 6";
+        /* Delete */
+        String sql = "delete from student where sid = 6";
 
         /* Class.forName("org.postgresql.Driver"); */
         Connection connection = DriverManager.getConnection(url, user, password);
