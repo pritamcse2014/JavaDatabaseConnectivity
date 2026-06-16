@@ -15,15 +15,14 @@ public class jdbc {
         String url = "jdbc:postgresql://localhost:5432/demo";
         String user = "postgres";
         String password = "2014";
-        /* Create */
-        String sql = "insert into student values (7, 'Priya', 77)";
+        /* Update */
+        String sql = "update student set sname = 'Prity' where sid = 6";
 
         /* Class.forName("org.postgresql.Driver"); */
         Connection connection = DriverManager.getConnection(url, user, password);
         System.out.println("Database Connection Established....");
         Statement statement = connection.createStatement();
-        boolean status = statement.execute(sql);
-        System.out.println(status);
+        statement.execute(sql);
         connection.close();
         System.out.println("Database Connection Closed....");
     }
