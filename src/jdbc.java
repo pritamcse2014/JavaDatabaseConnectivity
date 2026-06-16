@@ -12,11 +12,15 @@ public class jdbc {
             7. close
          */
 
+        int sid = 101;
+        String sname = "Sathi";
+        int marks = 48;
+
         String url = "jdbc:postgresql://localhost:5432/demo";
         String user = "postgres";
         String password = "2014";
         /* Delete */
-        String sql = "delete from student where sid = 6";
+        String sql = "insert into student values (" + sid + ", '" + sname + "', " + marks + ")";
 
         /* Class.forName("org.postgresql.Driver"); */
         Connection connection = DriverManager.getConnection(url, user, password);
